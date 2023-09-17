@@ -1,0 +1,35 @@
+.header {
+   margin-bottom: 50px;
+}
+.wrap {
+   position: relative;
+}
+.search {
+   margin-bottom: 20px;
+   position: relative;
+   span {
+      position: absolute;
+      top: 9px;
+      right: 20px;
+      font-size: 25px;
+      opacity: 0.6;
+      transition: 0.3s all;
+      cursor: pointer;
+      z-index: 50;
+
+      &:hover {
+         opacity: 1;
+      }
+   }
+}
+.image {
+   width: 50%;
+}
+
+.disabled {
+   display: none;
+}
+
+.cart__list {
+   margin-bottom: 30px;
+}
