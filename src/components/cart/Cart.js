@@ -36,7 +36,11 @@ const Cart = () => {
       ) : (
         <div style={{ textAlign: 'center' }}>
           <h1> Cart is empty</h1>
-          <img style={{ width: '70%', height: '70%', textAlign: 'center' }} src={facepalm} alt='' />
+          <img
+            style={{ width: '100%', height: '100%', textAlign: 'center' }}
+            src={facepalm}
+            alt=''
+          />
         </div>
       )}
     </div>

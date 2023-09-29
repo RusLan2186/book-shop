@@ -17,15 +17,10 @@ const CartList = ({ book, name, poster, count, price }) => {
   const onClickMinus = () => {
     dispatch(minusBook(book.id));
   };
-  if (count === 1) {
-    console.log('1111111');
-  } else {
-    console.log('< 0');
-  }
 
   return (
     <div className='cart__list'>
-      <Grid item xs={7} sm={5} md={4}>
+      <Grid item>
         <Card sx={{ maxWidth: 445, height: '150' }}>
           <CardMedia sx={{ height: 250 }} image={poster} />
           <CardContent>

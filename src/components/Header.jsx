@@ -15,10 +15,10 @@ const Header = () => {
   const handleOpen = () => setOpen(true);
   const style = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 1200,
+    top:"50%",
+    left:'50%',
+  transform: 'translate(-50%, -50%)',
+    // maxWidth: 400,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -37,14 +37,15 @@ const Header = () => {
             component="a"
             href="/"
             sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'flex' },
+              mr: 1,
+              display: { xs: 'block', md: 'block' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
               flexGrow:1,
+           
             }}
           >
             BookShop
@@ -63,7 +64,7 @@ const Header = () => {
         aria-describedby="modal-modal-description"
     children={<Cart/>}
       >
-        <Box sx={{ ...style, width: 600, zIndex:20, overflow:"scroll" }}>
+        <Box  sx={{ ...style,  height:"80%", zIndex:20, overflow:"scroll" }}>
           <Cart/>
       
          </Box>
