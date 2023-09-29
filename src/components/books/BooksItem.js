@@ -14,9 +14,9 @@ const BooksItem = ({ id, name, price, poster, count }) => {
   };
 
   return (
-    <Grid item xs={7} sm={5} md={4}>
-      <Card sx={{ maxWidth: 345, height: '100' }}>
-        <CardMedia sx={{ height: 200 }} image={poster} />
+    <Grid item xs={15} sm={6} md={4}>
+      <Card sx={{ maxWidth: '100%', height: '100' }}>
+        <CardMedia sx={{ maxWidth: '100%', height: 250 }} image={poster} />
         <CardContent>
           <Typography gutterBottom variant='h5' component='div'>
             {name}
