@@ -40,14 +40,12 @@ const Books = () => {
         <span onClick={() => setSearchValue('')} className={searchValue ? '' : 'disabled'}>
           X
         </span>
-        <TextField
+        <input
+          type='text'
+          className='search__input'
+          placeholder='Search'
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
-          id='outlined-basic'
-          label='Search'
-          variant='outlined'
-          fullWidth
-          autoComplete='off'
         />
       </div>
 
@@ -58,7 +56,7 @@ const Books = () => {
           <BooksItem {...book} key={book.id} />
         ))}
       </Grid>
-      <h1> {notFound}</h1>
+      <h1 className='not__found'> {notFound}</h1>
     </div>
   );
 };
