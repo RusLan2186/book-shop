@@ -1,3 +1,9 @@
+body {
+   background: url("./components//img/bg.jpeg");
+   background-size: contain;
+   background-color: rgb(129, 80, 35);
+}
+
 .header {
    margin-bottom: 50px;
 }
@@ -32,4 +38,9 @@
 
 .cart__list {
    margin-bottom: 30px;
+}
+.cart {
+   width: 40px;
+   height: 40px;
+   margin-right: 10px;
 }

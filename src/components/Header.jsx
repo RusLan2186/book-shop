@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 import Cart from './cart/Cart';
 import { useSelector } from 'react-redux';
 
+import cartIcon from './img/cart.png'
+
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.cartItems)
@@ -20,6 +22,7 @@ const Header = () => {
   transform: 'translate(-50%, -50%)',
     // maxWidth: 400,
     bgcolor: 'background.paper',
+   
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
@@ -28,7 +31,7 @@ const Header = () => {
 
   return (
     <div>
-      <AppBar  position="static">
+      <AppBar  position="static" sx={{bgcolor:'rgb(129, 80, 35)'}} >
         <Container>
         <Toolbar>
         <Typography
@@ -50,11 +53,13 @@ const Header = () => {
           >
             BookShop
           </Typography>
+          <img className='cart' src={cartIcon} alt="cart" />
           <Typography onClick={handleOpen} sx={{marginRight:1, cursor:'pointer'}} >Cart</Typography>
-          <Typography>{cartItems.length}</Typography>
-        </Toolbar>
-        </Container>
-      </AppBar>
+      <Typography>{cartItems.length}</Typography>
+          </Toolbar>
+  </Container>
+            </AppBar>
+   
    <div>
  
       <Modal
