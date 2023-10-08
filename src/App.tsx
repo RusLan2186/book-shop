@@ -4,7 +4,7 @@ import Books from './components/books/Books';
 import Header from './components/Header';
 import { TextField } from '@mui/material';
 
-function App() {
+const  App:React.FC = () => {
   return (
     <>
       <Header />
