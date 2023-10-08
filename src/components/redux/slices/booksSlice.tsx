@@ -9,7 +9,8 @@ count:number;
 }
 
 export interface BookSliceState{
-  books:BooksType[]
+  books:BooksType[];
+  booksSearchResult:BooksType[];
   error:string;
   isLoading:boolean;
 }
@@ -18,6 +19,7 @@ const initialState:BookSliceState = {
   books: [],
   error: '',
   isLoading: false,
+  booksSearchResult: [],
 
 };
 
@@ -40,8 +42,15 @@ export const booksSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    booksSearch:(state, action:PayloadAction<string>) =>{
+      state.booksSearchResult = state.books.filter(
+        (book) =>
+          book.name.toLowerCase().includes(action.payload) ||
+          String(book.price).includes(action.payload),
+      );
+    }
   },
 });
 
-export const { booksFetching, booksFetchingSuccess, booksFetchingError } = booksSlice.actions;
+export const { booksFetching, booksFetchingSuccess, booksFetchingError,booksSearch } = booksSlice.actions;
 export default booksSlice.reducer;
