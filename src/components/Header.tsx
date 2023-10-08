@@ -1,18 +1,23 @@
-import { AppBar, Container, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Container, Toolbar, Typography } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import React, { Children } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Cart from './cart/Cart';
 import { useSelector } from 'react-redux';
-
 import cartIcon from './img/cart.png';
 import { RootState } from './redux/store';
 
-const Header = () => {
-  const cartItems = useSelector((store) => store.cart.cartItems);
-  const totalPrice = useSelector((store) => store.cart.totalPrice);
-  const [open, setOpen] = React.useState(false);
+
+interface ModalProps{
+  children: React.ReactChild| React.ReactNode;
+   open: boolean;
+    onClose: (open:boolean) => void;
+}
+
+const Header:React.FC = () => {
+  const cartItems = useSelector((store:RootState) => store.cart.cartItems);
+  const totalPrice = useSelector((store:RootState) => store.cart.totalPrice);
+  const [open, setOpen] = React.useState<boolean>(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
   const style = {
@@ -62,18 +67,14 @@ const Header = () => {
       </AppBar>
 
       <div>
-        <Modal
-          //@ts-ignore
+       <Modal
           open={open}
           onClose={handleClose}
-          // aria-labelledby="modal-modal-title"
-          // aria-describedby="modal-modal-description"
-          children={<Cart />}
-        >
+          >   
           <Box sx={{ ...style, height: '80%', zIndex: 20, overflow: 'scroll' }}>
             <Cart />
           </Box>
-        </Modal>
+      </Modal>
       </div>
     </div>
   );

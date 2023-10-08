@@ -51,7 +51,7 @@ const Books:React.FC = () => {
       </div>
 
       {error}
-      {isLoading && <h1>Loading....</h1>}
+      {isLoading && <h1 className='loading'>Loading....</h1>}
       <Grid container spacing={2}>
         {booksList.map((book) => (
           <BooksItem {...book} key={book.id} />

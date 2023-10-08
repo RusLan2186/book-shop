@@ -5,6 +5,9 @@ import { clearCart } from '../redux/slices/cartSlice';
 import { Button, Typography } from '@mui/material';
 import { RootState, useAppDispatch } from '../redux/store';
 
+
+
+
 const Cart:React.FC = () => {
   const dispatch = useAppDispatch();
   const { cartItems, totalPrice } = useSelector((store:RootState) => store.cart);
