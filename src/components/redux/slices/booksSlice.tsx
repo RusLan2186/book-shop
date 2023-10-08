@@ -33,7 +33,7 @@ export const booksSlice = createSlice({
       state.books = action.payload;
       state.error = '';
       state.isLoading = false;
-      console.log(state.books);
+
     },
     booksFetchingError: (state, action:PayloadAction<string>) => {
       state.isLoading = false;
