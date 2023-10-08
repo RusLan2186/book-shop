@@ -1,10 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+export type BooksType = {
+id:string;
+poster:string;
+name:string;
+price:number;
+}
+
+export interface BookSliceState{
+  books:BooksType[]
+  error:string;
+  isLoading:boolean;
+}
+
+const initialState:BookSliceState = {
   books: [],
   error: '',
   isLoading: false,
+
 };
+
+
 
 export const booksSlice = createSlice({
   name: 'books',
@@ -13,12 +29,13 @@ export const booksSlice = createSlice({
     booksFetching: (state) => {
       state.isLoading = true;
     },
-    booksFetchingSuccess: (state, action) => {
+    booksFetchingSuccess: (state, action:PayloadAction<BooksType[]>) => {
       state.books = action.payload;
       state.error = '';
       state.isLoading = false;
+      console.log(state.books);
     },
-    booksFetchingError: (state, action) => {
+    booksFetchingError: (state, action:PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },
