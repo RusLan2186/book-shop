@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchThunkBooks } from '../redux/slices/booksLoad';
 import BooksItem from './BooksItem';
 import Grid from '@mui/material/Grid';
-
 import { RootState, useAppDispatch } from '../redux/store';
 import { booksSearch } from '../redux/slices/booksSlice';
 

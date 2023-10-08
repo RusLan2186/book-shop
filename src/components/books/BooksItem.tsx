@@ -10,7 +10,7 @@ const BooksItem:React.FC<CartItemsType> = ({ id, name, price, poster, count }) =
   const dispatch = useAppDispatch();
 
   const addToCart = () => {
-    const item = { id, name, price, poster, count };
+    const item:CartItemsType= { id, name, price, poster, count };
     dispatch(addBook(item));
   };
 
