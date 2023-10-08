@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import CartList from './CartList';
 import { clearCart } from '../redux/slices/cartSlice';
 import { Button, Typography } from '@mui/material';
+import { RootState, useAppDispatch } from '../redux/store';
 
-const Cart = () => {
-  const dispatch = useDispatch();
-  const { cartItems, totalPrice } = useSelector((store) => store.cart);
+const Cart:React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { cartItems, totalPrice } = useSelector((store:RootState) => store.cart);
   const facepalm =
     'https://img.freepik.com/premium-photo/facepalm-disappointed-man-covering-his-face-with-his-hand_262388-7440.jpg?w=2000';
 
@@ -18,12 +19,14 @@ const Cart = () => {
     <div>
       {cartItems.length > 0 ? (
         <div>
-          <Button onClick={handleClearCart} variant='text' size='big'>
+          <Button onClick={handleClearCart} variant='text'>
             Clear Cart
           </Button>
           <div style={{ marginBottom: '50px' }}>
             {cartItems.map((book) => (
-              <CartList key={book.id} book={book} {...book} />
+              <CartList key={book.id}
+              //  book={book}
+               {...book} />
             ))}
           </div>
           <Typography gutterBottom variant='h5' component='div'>

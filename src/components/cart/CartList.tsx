@@ -1,21 +1,24 @@
 import React, { useRef } from 'react';
 import { Card, CardMedia, Typography, Button, CardActions, CardContent } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { deleteBook, minusBook, plusBook } from '../redux/slices/cartSlice';
+import { CartItemsType, CartStateSlice, deleteBook, minusBook, plusBook } from '../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 
-const CartList = ({ book, name, poster, count, price }) => {
+
+
+
+const CartList:React.FC<CartItemsType> = ({ id, name, poster, count, price }) => {
   const dispatch = useDispatch();
 
   const removeBook = () => {
-    dispatch(deleteBook(book.id));
+    dispatch(deleteBook(id));
   };
 
   const onClickPlus = () => {
-    dispatch(plusBook(book.id));
+    dispatch(plusBook(id));
   };
   const onClickMinus = () => {
-    dispatch(minusBook(book.id));
+    dispatch(minusBook(id));
   };
 
   return (
@@ -29,16 +32,16 @@ const CartList = ({ book, name, poster, count, price }) => {
             </Typography>
 
             <CardActions sx={{ display: 'flex', columnGap: 1, marginBottom: 3 }}>
-              <Button onClick={onClickPlus} variant='outlined' size='big'>
+              <Button onClick={onClickPlus} variant='outlined' >
                 +
               </Button>
               <Typography variant='h5'> {count}</Typography>
               {count === 1 ? (
-                <Button onClick={onClickMinus} disabled variant='outlined' size='big'>
+                <Button onClick={onClickMinus} disabled variant='outlined' >
                   -
                 </Button>
               ) : (
-                <Button onClick={onClickMinus} variant='outlined' size='big'>
+                <Button onClick={onClickMinus} variant='outlined' >
                   -
                 </Button>
               )}
@@ -48,7 +51,7 @@ const CartList = ({ book, name, poster, count, price }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button onClick={removeBook} variant='text' size='big'>
+            <Button onClick={removeBook} variant='text'>
               Delete
             </Button>
           </CardActions>
