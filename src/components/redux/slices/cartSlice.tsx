@@ -6,7 +6,7 @@ export type CartItemsType = {
   poster:string;
   count:number;
   price:number;
-  id?:number;
+  id:number;
 }
 
 export interface CartStateSlice{

@@ -5,14 +5,15 @@ import BooksItem from './BooksItem';
 import { TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
+import { RootState, useAppDispatch } from '../redux/store';
 
-const Books = () => {
-  const dispatch = useDispatch();
-  const books = useSelector((store) => store.books.books);
-  const error = useSelector((store) => store.books.error);
-  const isLoading = useSelector((store) => store.books.isLoading);
+const Books:React.FC = () => {
+  const dispatch = useAppDispatch();
+  const books = useSelector((store:RootState) => store.books.books);
+  const error = useSelector((store:RootState) => store.books.error);
+  const isLoading = useSelector((store:RootState) => store.books.isLoading);
   const [searchValue, setSearchValue] = useState('');
-  const [notFound, setNotFound] = useState('');
+  const [notFound, setNotFound] = useState<string>('');
   const sort = ['title', 'year'];
 
   useEffect(() => {

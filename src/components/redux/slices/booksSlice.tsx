@@ -1,10 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export type BooksType = {
-id:string;
+id:number;
 poster:string;
 name:string;
 price:number;
+count:number;
 }
 
 export interface BookSliceState{

@@ -1,12 +1,13 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-
 import { Card, CardMedia, Typography, Button, CardActions, CardContent } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/slices/cartSlice';
+import { CartItemsType, addBook } from '../redux/slices/cartSlice';
+import { useAppDispatch } from '../redux/store';
 
-const BooksItem = ({ id, name, price, poster, count }) => {
-  const dispatch = useDispatch();
+
+
+const BooksItem:React.FC<CartItemsType> = ({ id, name, price, poster, count }) => {
+  const dispatch = useAppDispatch();
 
   const addToCart = () => {
     const item = { id, name, price, poster, count };
@@ -21,10 +22,10 @@ const BooksItem = ({ id, name, price, poster, count }) => {
           <Typography gutterBottom variant='h5' component='div'>
             {name}
           </Typography>
-          <Typography variant='body6'> Price: {price} $</Typography>
+          <Typography > Price: {price} $</Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={addToCart} variant='text' size='big'>
+          <Button onClick={addToCart} variant='text' >
             Buy
           </Button>
         </CardActions>
